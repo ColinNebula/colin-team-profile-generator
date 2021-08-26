@@ -1,72 +1,23 @@
-const profileDataArgs = process.argv.slice(2, process.argv.length);
-const name = profileDataArgs[0];
-const title = profileDataArgs[1];
-const employeeId = profileDataArgs[2];
-const eMail = profileDataArgs[3];
-const github = profileDataArgs[4];
+const fs = require('fs');
+const generatePage = require('./src/page-template.js');
 
-const generatePage = (userName, title, githubName, employeeId, eMail) => {
-  return `
-  <!DOCTYPE html> 
-  <html lang="en"> 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Portfolio Demo</title>
-  </head>
+const profileDataArgs = process.argv.slice(2);
 
-    <body>
-    <header>
-     <a>My Team</a>
-    </header>
-    <main class="container">
-    <section class="employee">
-    <h1>${name}</h1>
-    Name: ${userName}
-    Title: ${title}
-    EmployeeId: ${employeeId}
-    E-mail: ${eMail}
-    GitHub: ${githubName}
-    <h2><a href="https://github.com/${github}">Github</a></h2>
-    </section>
+console.log(profileDataArgs);
 
-    <section class="engineer id="engineer">
-    <h1>${name}</h1>
-    Name: ${userName}
-    Title: ${title}
-    EmployeeId: ${employeeId}
-    E-mail: ${eMail}
-    GitHub: ${githubName}
-    <h2><a href="https://github.com/${github}">Github</a></h2>
-    </section>
+const [name, title, employeeId, eMail, github] = profileDataArgs;
 
-    <section class="intern id="intern">
-    <h1>${name}</h1>
-    Name: ${userName}
-    Title: ${title}
-    EmployeeId: ${employeeId}
-    E-mail: ${eMail}
-    GitHub: ${githubName}
-    <h2><a href="https://github.com/${github}">Github</a></h2>
-    </section>
-
-    <section class="manager id="manager">
-    <h1>${name}</h1>
-    Name: ${userName}
-    Title: ${title}
-    EmployeeId: ${employeeId}
-    E-mail: ${eMail}
-    GitHub: ${githubName}
-    <h2><a href="https://github.com/${github}">Github</a></h2>
-    </section>
-    </main>
-  </body>
-  </html>
-  `;
-};
 console.log(name, title, employeeId, eMail, github);
-console.log(generatePage(name, title, employeeId, eMail, github));
+
+const pageHTML = generatePage(name, title, employeeId, eMail, github);
+
+fs.writeFile('index.html', pageHTML, err => {
+  if (err) throw err;
+
+  console.log('Web page complete! Check out index.html to see the output!');
+});
+// console.log(name, title, employeeId, eMail, github);
+// console.log(generatePage(name, title, employeeId, eMail, github));
 //const { writeFile, copyFile } = require('./utils/generate-site.js');
 // Inquirer
 // const fs = require('fs');
