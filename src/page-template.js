@@ -15,6 +15,7 @@ module.exports = (name, title, employeeId, eMail, githubName, github) => {
     </header>
     <main class="container">
     <section class="employee" id="employee">
+    <div>
     <h1>${name}</h1>
     <ul style="list-style-type:none;">
     <li><a>Name: ${name}</a></li>
@@ -23,42 +24,11 @@ module.exports = (name, title, employeeId, eMail, githubName, github) => {
     <li><a>E-mail: ${eMail}</a></li>
     <li><a>GitHub: ${githubName}</a></li>
     </ul>
+    <div/>
     <h2><a href="https://github.com/${github}">Github</a></h2>
     </section>
 
-    <section class="engineer" id="engineer">
-    <h1>${name}</h1>
-    <ul style="list-style-type:none;">
-    <li><a>Name: ${name}</a></li>
-    <li><a>Title: ${title}</a></li>
-    <li><a>EmployeeId: ${employeeId}</a></li>
-    <li><a>E-mail: ${eMail}</a></li>
-    <li><a>GitHub: ${githubName}</a></li>
-    </ul>
-    
-    </section>
 
-    <section class="intern" id="intern">
-    <h1>${name}</h1>
-    <ul style="list-style-type:none;">
-    <li><a>Name: ${name}</a></li>
-    <li><a>Title: ${title}</a></li>
-    <li><a>EmployeeId: ${employeeId}</a></li>
-    <li><a>E-mail: ${eMail}</a></li>
-    <li><a>GitHub: ${githubName}</a></li>
-    </ul>
-  
-    </section>
-
-    <section class="manager" id="manager">
-    <h1>${name}</h1>
-    <ul style="list-style-type:none;">
-    <li><a>Name: ${name}</a></li>
-    <li><a>Title: ${title}</a></li>
-    <li><a>EmployeeId: ${employeeId}</a></li>
-    <li><a>E-mail: ${eMail}</a></li>
-    <li><a>GitHub: ${githubName}</a></li>
-    </ul>
     
     </section>
     </main>
