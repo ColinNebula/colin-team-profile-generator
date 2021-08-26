@@ -1,0 +1,22 @@
+{
+  "name": "colin-team-profile-generator",
+  "version": "1.0.0",
+  "description": "This application will generate the profiles of your team members.",
+  "main": "index.js",
+  "scripts": {
+    "test": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ColinNebula/colin-team-profile-generator.git"
+  },
+  "author": "Colin Nebula",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ColinNebula/colin-team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/ColinNebula/colin-team-profile-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.1.2"
+  }
+}
