@@ -11,11 +11,11 @@ const generateProjects = projectsArr => {
           <div class="col-12 mb-2 bg-dark text-light p-3">
             <h3 class="portfolio-item-title text-light">${name}</h3>
             <h5 class="portfolio-languages">
-              Title:
+              ${title}
               ${eMail.map(eMail => eMail).join(',')}
             </h5>
             <p>${iD}</p>
-            <a href="${link}" class="btn"><i class="fab fa-github mr-2"></i>View Project on GitHub</a>
+            <a href="${link}" class="btn"><i class="Fas Fa-Eye mr-2"></i>View Project on GitHub</a>
           </div>
         `;
         })
@@ -30,9 +30,9 @@ const generateProjects = projectsArr => {
       <h5 class="portfolio-title">
          ${title}
       </h5>
-      <p>${iD}</p>
+      <p>ID:${iD}</p>
       <p>${eMail}</p>
-      <a href="${link}"  mt-auto"><i class="fab fa-github mr-2"></i> GitHub</a>
+      <a href="${link}"  mt-auto"><i class="Fas Fa-Car mr-2"></i> GitHub</a>
     </div>
   `;
   })
@@ -52,6 +52,9 @@ module.exports = templateData => {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Public+Sans:300i,300,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>Team Profile Generator</title>
   </head>
 
@@ -78,7 +81,7 @@ module.exports = templateData => {
 </section>
 </main>
     <footer class="container text-center py-3">
-      <h3 class="text-dark">&copy; ${new Date().getFullYear()} by ${header.name}</h3>
+      <h3 class="text-dark">&copy; ${new Date().getFullYear()} by Colin Nebula Terminators!</h3>
     </footer>
   </body>
   </html>
