@@ -1,61 +1,83 @@
-const generatePage = require('./src/page-template.js');
-const generatePage = (managerName, github) => {
+// create the projects section
+const generateProjects = projectsArr => {
+  return `
+    <section class="my-3" id="portfolio">
+      <h2 class="text-dark"></h2>
+      <div class="flex-row justify-space-between">
+      ${projectsArr
+        .filter(({ feature }) => feature)
+        .map(({ name, title, iD, eMail, link }) => {
+          return `
+          <div class="col-12 mb-2 bg-dark text-light p-3">
+            <h3 class="portfolio-item-title text-light">${name}</h3>
+            <h5 class="portfolio-languages">
+              <p>${title}</p>
+              ${eMail.map(eMail => eMail).join(',')}
+            </h5>
+            <p>${iD}</p>
+            <a href="${link}" class="btn"><i class="fab fa-github mr-1"></i></a>
+          </div>
+        `;
+        })
+        .join('')}
+
+  ${projectsArr
+  .filter(({ feature }) => !feature)
+  .map(({ name, title, eMail, iD, link }) => {
+    return `
+    <div class="col-12 col-md-6 mb-2 bg-dark text-light p-3 flex-column">
+      <h2 class="portfolio-item-title text-light">${name}</h2>
+      <h2 class="portfolio-title"></h2>
+      <h3>Title: ${title}</h3>
+      <p>ID: ${iD}</p>
+      <p>E-Mail: ${eMail}</p>
+      <a href="${link}" class="btn mt-auto"><i class="fab fa-github mr-2"></i>Github</a>
+    </div>
+  `;
+  })
+  .join('')}
+</div>
+</section>
+`;
+};
+
+module.exports = templateData => {
+  // destructure page data by section
+  const { projects, name, title, iD, eMail, link, github, ...header } = templateData;
   return `
   <!DOCTYPE html> 
   <html lang="en"> 
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
-    integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Team Generator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Public+Sans:300i,300,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Team Profile Generator</title>
   </head>
-  <header>
-  <nav class="navbar is-primary role="navigation" aria-label="main navigator" is-centered">
-  <!-- navbar brand, navbar menu... -->
-  <div class="navbar-brand">
-  <a> My Team </a>
-</nav>
-  </header>
-  <body>
-    <h1>${name}</h1>
-    <h2><a href="https://github.com/${github}">Github</a></h2>
- <section class="section">
- <div class="columns">
-  <div class="column">
-    <h1>${name}</h1>
-    <span class="icon">
-  <i class="Fas Fa-Satallite"></i>
-  </span>
-  <span>Manager</span>
-  </div>
-  <div class="column">
-  <h1>${name}/h1>
-  <span class="icon">
-  <i class="Fas Fa-Coffee"></i>
-  </span>
-  <span>Artist</span>
-  </div>
-  <div class="column">
-  <h1>${name}</h1>
-  <span class="icon">
-  <i class="Fas Fa-Coffee"></i>
-  </span>
-  <span>Engineer</span>
-  </div>
-  <div class="column">
-  <h1>${name}</h1>
-  <span class="icon">
-  <i class="Fas Fa-Umbrella"></i>
-  </span>
-  <span>Intern</span>
-  </div>
-</div>
- </section>
+
+    <body>
+    <header>
+    
+    
+    <div class="container flex-row justify-space-between align-center py-3">
+        <h1 class="page-title text-secondary bg-dark py-2 px-3">My Team</h1>
+        <nav class="flex-row">
+        
+    </div>
+    </header>
+    <main class="container my-5">
+      ${generateProjects(projects)}
+    </main>
+</section>
+</main>
+    <footer class="container text-center py-3">
+      <h3 class="text-dark">&copy; ${new Date().getFullYear()} by Colin Nebula Terminators!</h3>
+      <a href="https://github.com/ColinNebula" class="btn mt-auto"><i class="fab fa-github mr-2"></i>Github</a>
+    </footer>
   </body>
   </html>
   `;
 };
-module.exports = generatePage;
