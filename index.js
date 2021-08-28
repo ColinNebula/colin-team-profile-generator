@@ -192,8 +192,7 @@ promptUser()
     console.log(err);
   });
 
-// this will create three variables based on data in templateData
-//const { projects, name, title, employeeId, eMail, github, ...header } = templateData;
+
 
 
 
