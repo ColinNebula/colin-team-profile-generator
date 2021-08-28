@@ -2,21 +2,39 @@
 
 ## Description
 
+# Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [Credits](#credits)
+* [License](#license)
 
 ## User Story
 AS A manager
 I WANT to generate a webpage that displays my team's basic info
 SO THAT I have quick access to their emails and GitHub profiles
 
-## Mock-Up
+
+## Project URl
+
+## Github Repository link
+https://github.com/ColinNebula/colin-team-profile-generator
+
+## Project Mock-Up
+![10-object-oriented-programming-homework-demo](https://user-images.githubusercontent.com/57843842/131204950-31bcd09a-b236-42e8-8993-ba57fd487090.png)
 
 
+## Project Screenshot
 
+## Installation
 
+## Usage
+Please watch the short video about the usage and installation of this application.
 
+## Credits
+Colin Nebula
 
-
-
+## License
+MIT
 
 
 ## Acceptance Criteria
