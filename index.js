@@ -1,4 +1,8 @@
-//const fs = require('fs');
+// Moment 
+const moment = require('moment');
+const dateTime = moment();
+console.log(dateTime.format('MMMM Do YYYY, h:mm:ss a'));
+// All require modules
 const { writeFile, copyFile } = require('./utils/generate-site.js');
 const inquirer = require('inquirer');
 const generatePage = require('./src/page-template');
@@ -90,7 +94,7 @@ Add a New Team Member
       {
         type: 'input',
         name: 'name',
-        message: 'please enter a name? (Required)',
+        message: 'Please enter a name? (Required)',
         validate: nameInput => {
           if (nameInput) {
             return true;
@@ -197,7 +201,3 @@ promptUser()
 
 
 
-// Moment
-const moment = require('moment');
-const dateTime = moment();
-console.log(dateTime.format('MMMM Do YYYY, h:mm:ss a'));

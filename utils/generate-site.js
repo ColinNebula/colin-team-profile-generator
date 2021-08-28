@@ -34,7 +34,7 @@ const copyFile = () => {
           // if everything went well, resolve the Promise and send the successful data to the `.then()` method
         resolve({
             ok: true,
-            message: 'Stylesheet created!'
+            message: 'Stylesheet was created!'
           });
     });
 });
