@@ -6,6 +6,9 @@ console.log(dateTime.format('MMMM Do YYYY, h:mm:ss a'));
 const { writeFile, copyFile } = require('./utils/generate-site.js');
 const inquirer = require('inquirer');
 const generatePage = require('./src/page-template');
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const Manager = require("./lib/Manager");
 
 
 const promptUser = () => {
@@ -23,6 +26,7 @@ const promptUser = () => {
         }
       }
     },
+<<<<<<< HEAD
     {
       type: 'input',
       name: 'email',
@@ -49,6 +53,9 @@ const promptUser = () => {
         }
       }
     },
+=======
+    
+>>>>>>> feature/updated-template
   ]);
 } 
 
@@ -59,7 +66,11 @@ Add a New Team Member
 =====================
 `);
 
+<<<<<<< HEAD
   // inquirer prompt
+=======
+  // If there's no 'member', create one
+>>>>>>> feature/updated-template
   if (!portfolioData.teams) {
     portfolioData.teams = [];
   }
@@ -68,7 +79,7 @@ Add a New Team Member
       {
         type: 'input',
         name: 'name',
-        message: 'Please enter a name? (Required)',
+        message: 'Please enter a team member name? (Required)',
         validate: nameInput => {
           if (nameInput) {
             return true;

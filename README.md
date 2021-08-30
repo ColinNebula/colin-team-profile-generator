@@ -31,7 +31,7 @@ https://github.com/ColinNebula/colin-team-profile-generator
 Please watch the video for installation information.
 
 ## Usage
-Please watch the short video about the usage and installation of this application.
+N/A
 
 ## Credits
 Colin Nebula
