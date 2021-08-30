@@ -1,7 +1,7 @@
 # colin-team-profile-generator
 
 ## Description
-Team profile Generator is a small web application that allows the user to quickly generate a team profile from the command line with ease. The entire application is generated using nodeJs. Language used is Javascript.
+Team profile Generator is a small web application that allows the user to quickly generate a team profile from the command line with ease. It offer acess to team member title, id, emails and GitHub profiles. The entire application is generated using nodeJs. Language used is Javascript.
 
 # Table of Contents
 * [Installation](#installation)

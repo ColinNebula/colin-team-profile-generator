@@ -1,10 +1,10 @@
 // create the projects section
-const generateProjects = projectsArr => {
+const generateTeams = teamsArr => {
   return `
     <section class="my-3" id="portfolio">
       <h2 class="text-dark"></h2>
       <div class="flex-row justify-space-between">
-      ${projectsArr
+      ${teamsArr
         .filter(({ feature }) => feature)
         .map(({ name, title, iD, eMail, link }) => {
           return `
@@ -21,7 +21,7 @@ const generateProjects = projectsArr => {
         })
         .join('')}
 
-  ${projectsArr
+  ${teamsArr
   .filter(({ feature }) => !feature)
   .map(({ name, title, eMail, iD, link }) => {
     return `
@@ -43,7 +43,7 @@ const generateProjects = projectsArr => {
 
 module.exports = templateData => {
   // destructure page data by section
-  const { projects, name, title, iD, eMail, link, github, ...header } = templateData;
+  const { Teams, name, title, iD, eMail, link, github, ...header } = templateData;
   return `
   <!DOCTYPE html> 
   <html lang="en"> 
@@ -69,7 +69,7 @@ module.exports = templateData => {
     </div>
     </header>
     <main class="container my-5">
-      ${generateProjects(projects)}
+      ${generateTeams(teams)}
     </main>
 </section>
 </main>

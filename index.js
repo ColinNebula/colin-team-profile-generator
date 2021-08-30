@@ -25,32 +25,6 @@ const promptUser = () => {
     },
     {
       type: 'input',
-      name: 'title',
-      message: 'What is your title? (Required)',
-      validate: titleInput => {
-        if (titleInput) {
-          return true;
-        } else {
-          console.log('Enter your title here!');
-          return false;
-        }
-      }
-    },
-    {
-      type: 'input',
-      name: 'id',
-      message: 'Enter your employee ID: (Required)',
-      validate: iDInput => {
-        if (iDInput) {
-          return true;
-        } else {
-          console.log('Enter your ID!');
-          return false;
-        }
-      }
-    },
-    {
-      type: 'input',
       name: 'email',
       message: 'Please enter your email address?: (Required)',
       validate: eMailInput => {
@@ -78,16 +52,16 @@ const promptUser = () => {
   ]);
 } 
 
-const promptProject = portfolioData => {
+const promptTeam = portfolioData => {
   console.log(`
 =====================
 Add a New Team Member
 =====================
 `);
 
-  // If there's no 'projects' array property, create one
-  if (!portfolioData.projects) {
-    portfolioData.projects = [];
+  // inquirer prompt
+  if (!portfolioData.teams) {
+    portfolioData.teams = [];
   }
   return inquirer
     .prompt([
@@ -158,23 +132,23 @@ Add a New Team Member
       },
       {
         type: 'confirm',
-        name: 'confirmAddProject',
+        name: 'confirmAddTeam',
         message: 'Would you like to add another team member?',
         default: false
       }
     ])
-    .then(projectData => {
-      portfolioData.projects.push(projectData);
-      if (projectData.confirmAddProject) {
-        return promptProject(portfolioData);
+    .then(teamData => {
+      portfolioData.teams.push(teamData);
+      if (teamData.confirmAddTeam) {
+        return promptTeam(portfolioData);
       } else {
         return portfolioData;
       }
     });
 };
-
+// User Prompt
 promptUser()
-  .then(promptProject)
+  .then(promptTeam)
   .then(portfolioData => {
     return generatePage(portfolioData);
   })
