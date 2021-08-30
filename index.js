@@ -6,6 +6,9 @@ console.log(dateTime.format('MMMM Do YYYY, h:mm:ss a'));
 const { writeFile, copyFile } = require('./utils/generate-site.js');
 const inquirer = require('inquirer');
 const generatePage = require('./src/page-template');
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const Manager = require("./lib/Manager");
 
 
 const promptUser = () => {
@@ -23,78 +26,27 @@ const promptUser = () => {
         }
       }
     },
-    {
-      type: 'input',
-      name: 'title',
-      message: 'What is your title? (Required)',
-      validate: titleInput => {
-        if (titleInput) {
-          return true;
-        } else {
-          console.log('Enter your title here!');
-          return false;
-        }
-      }
-    },
-    {
-      type: 'input',
-      name: 'id',
-      message: 'Enter your employee ID: (Required)',
-      validate: iDInput => {
-        if (iDInput) {
-          return true;
-        } else {
-          console.log('Enter your ID!');
-          return false;
-        }
-      }
-    },
-    {
-      type: 'input',
-      name: 'email',
-      message: 'Please enter your email address?: (Required)',
-      validate: eMailInput => {
-        if (eMailInput) {
-          return true;
-        } else {
-          console.log('Enter you Email address here!');
-          return false;
-        }
-      }
-    },
-    {
-      type: 'input',
-      name: 'github',
-      message: 'Please enter your GitHub Username (Required)',
-      validate: nameInput => {
-        if (nameInput) {
-          return true;
-        } else {
-          console.log('You need to enter your GitHub Username!');
-          return false;
-        }
-      }
-    },
+    
   ]);
 } 
 
-const promptProject = portfolioData => {
+const promptTeam = portfolioData => {
   console.log(`
 =====================
 Add a New Team Member
 =====================
 `);
 
-  // If there's no 'projects' array property, create one
-  if (!portfolioData.projects) {
-    portfolioData.projects = [];
+  // If there's no 'member', create one
+  if (!portfolioData.teams) {
+    portfolioData.teams = [];
   }
   return inquirer
     .prompt([
       {
         type: 'input',
         name: 'name',
-        message: 'Please enter a name? (Required)',
+        message: 'Please enter a team member name? (Required)',
         validate: nameInput => {
           if (nameInput) {
             return true;
@@ -158,23 +110,23 @@ Add a New Team Member
       },
       {
         type: 'confirm',
-        name: 'confirmAddProject',
+        name: 'confirmAddTeam',
         message: 'Would you like to add another team member?',
         default: false
       }
     ])
-    .then(projectData => {
-      portfolioData.projects.push(projectData);
-      if (projectData.confirmAddProject) {
-        return promptProject(portfolioData);
+    .then(teamData => {
+      portfolioData.teams.push(teamData);
+      if (teamData.confirmAddTeam) {
+        return promptTeam(portfolioData);
       } else {
         return portfolioData;
       }
     });
 };
-
+// User Prompt
 promptUser()
-  .then(promptProject)
+  .then(promptTeam)
   .then(portfolioData => {
     return generatePage(portfolioData);
   })

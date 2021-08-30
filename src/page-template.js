@@ -1,10 +1,10 @@
 // create the projects section
-const generateProjects = projectsArr => {
+const generateTeams = teamsArr => {
   return `
     <section class="my-3" id="portfolio">
       <h2 class="text-dark"></h2>
       <div class="flex-row justify-space-between">
-      ${projectsArr
+      ${teamsArr
         .filter(({ feature }) => feature)
         .map(({ name, title, iD, eMail, link }) => {
           return `
@@ -21,14 +21,14 @@ const generateProjects = projectsArr => {
         })
         .join('')}
 
-  ${projectsArr
+  ${teamsArr
   .filter(({ feature }) => !feature)
   .map(({ name, title, eMail, iD, link }) => {
     return `
     <div class="col-12 col-md-6 mb-2 bg-dark text-light p-3 flex-column">
       <h2 class="portfolio-item-title text-light">${name}</h2>
       <h2 class="portfolio-title"></h2>
-      <h3>Title: ${title}</h3>
+      <h3 class="fab fa-github mr-1"></i>Title: ${title}</h3>
       <p>ID: ${iD}</p>
       <p>E-Mail: ${eMail}</p>
       <a href="${link}" class="btn mt-auto"><i class="fab fa-github mr-2"></i>Github</a>
@@ -43,7 +43,7 @@ const generateProjects = projectsArr => {
 
 module.exports = templateData => {
   // destructure page data by section
-  const { projects, name, title, iD, eMail, link, github, ...header } = templateData;
+  const { teams, name, title, iD, eMail, link, github, ...header } = templateData;
   return `
   <!DOCTYPE html> 
   <html lang="en"> 
@@ -69,12 +69,12 @@ module.exports = templateData => {
     </div>
     </header>
     <main class="container my-5">
-      ${generateProjects(projects)}
+      ${generateTeams(teams)}
     </main>
 </section>
 </main>
     <footer class="container text-center py-3">
-      <h3 class="text-dark">&copy; ${new Date().getFullYear()} by Colin Nebula Terminators!</h3>
+      <h3 class="text-dark">&copy; ${new Date().getFullYear()} by Colin Nebula</h3>
       <a href="https://github.com/ColinNebula" class="btn mt-auto"><i class="fab fa-github mr-2"></i>Github</a>
     </footer>
   </body>
