@@ -4,38 +4,33 @@ const generateTeams = teamsArr => {
     <section class="my-3" id="portfolio">
       <h2 class="text-dark"></h2>
       <div class="flex-row justify-space-between">
-      ${teamsArr
-        .filter(({ feature }) => feature)
-        .map(({ name, title, iD, eMail, link }) => {
-          return `
-          <div class="col-12 mb-2 bg-dark text-light p-3">
-            <h3 class="portfolio-item-title text-light">${name}</h3>
-            <h5 class="portfolio-languages">
-              <p>${title}</p>
-              ${eMail.map(eMail => eMail).join(',')}
-            </h5>
-            <p>${iD}</p>
-            <a href="${link}" class="btn"><i class="fab fa-github mr-1"></i></a>
-          </div>
-        `;
-        })
-        .join('')}
 
   ${teamsArr
-  .filter(({ feature }) => !feature)
-  .map(({ name, title, eMail, iD, link }) => {
-    return `
+      .filter(({ feature }) => !feature)
+      .map((emp) => {
+        function returnRoleHtml() {
+            if (emp.getRole() === 'Engineer') {
+              return  `<a href="${emp.link}" class="btn"><i class="fab fa-github mr-1"></i></a>`
+            }else if (emp.getRole() === 'Manager') {
+              return  `<p>Office Number:${emp.officeNumber}</p>`
+            }else {
+              return  `<p>school:${emp.school}</p>`
+            }
+        }
+        return `
     <div class="col-12 col-md-6 mb-2 bg-dark text-light p-3 flex-column">
-      <h2 class="portfolio-item-title text-light">${name}</h2>
-      <h2 class="portfolio-title"></h2>
-      <h3 class="fab fa-github mr-1"></i>Title: ${title}</h3>
-      <p>ID: ${iD}</p>
-      <p>E-Mail: ${eMail}</p>
-      <a href="${link}" class="btn mt-auto"><i class="fab fa-github mr-2"></i>Github</a>
+      <h2 class="portfolio-item-title text-light">${emp.name}</h2>
+      <h3 class="fa fa-${emp.getRole() === 'Manager'? 
+      'network-wired': emp.getRole() === 'Engineer'? 
+      'cogs': 'graduation-cap' }"></i> ${emp.getRole()}
+      </h3>
+      <p>ID: ${emp.id}</p>
+      <p>E-Mail: ${emp.email}</p>
+  ${returnRoleHtml()}    
     </div>
   `;
-  })
-  .join('')}
+      })
+      .join('')}
 </div>
 </section>
 `;
@@ -65,7 +60,6 @@ module.exports = templateData => {
     <div class="container flex-row justify-space-between align-center py-3">
         <h1 class="page-title text-secondary bg-dark py-2 px-3">My Team</h1>
         <nav class="flex-row">
-        
     </div>
     </header>
     <main class="container my-5">
@@ -73,10 +67,7 @@ module.exports = templateData => {
     </main>
 </section>
 </main>
-    <footer class="container text-center py-3">
-      <h3 class="text-dark">&copy; ${new Date().getFullYear()} by Colin Nebula</h3>
-      <a href="https://github.com/ColinNebula" class="btn mt-auto"><i class="fab fa-github mr-2"></i>Github</a>
-    </footer>
+    
   </body>
   </html>
   `;
