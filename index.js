@@ -6,6 +6,7 @@ console.log(dateTime.format('MMMM Do YYYY, h:mm:ss a'));
 const { writeFile, copyFile } = require('./utils/generate-site.js');
 const inquirer = require('inquirer');
 const generatePage = require('./src/page-template');
+const Employee = require("./lib/Employee");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
@@ -90,17 +91,10 @@ Add a New Team Member
         }
       },
       {
-        type: 'input',
+        type: 'list',
+        choices: ['Engineer', 'Manager', 'Intern'], 
         name: 'title',
         message: 'What is title of team member (Required)',
-        validate: titleInput => {
-          if (titleInput) {
-            return true;
-          } else {
-            console.log('please enter a title here!');
-            return false;
-          }
-        }
       },
       {
         type: 'input',
@@ -130,6 +124,26 @@ Add a New Team Member
       },
       {
         type: 'input',
+        name: 'school',
+        message: 'Please enter a school for this member (Required)',
+        validate: iDInput => {
+          if (iDInput) {
+            return true;
+          } else {
+            console.log('please enter an ID number here!');
+            return false;
+          }
+        },
+        when: (answers) => {
+          if (answers.title === 'Intern') {
+            return true;
+          } else {
+            return false;
+          }
+        },
+      },
+      {
+        type: 'input',
         name: 'link',
         message: 'Enter user GitHub link:(Required)',
         validate: linkInput => {
@@ -149,7 +163,20 @@ Add a New Team Member
       }
     ])
     .then(teamData => {
-      portfolioData.teams.push(teamData);
+      if (teamData.title === 'Engineer') {
+        portfolioData.teams.push(new Engineer(teamData.name, teamData.iD, teamData.eMail, teamData.link)
+        )
+      }else if (teamData.title === 'Manager') {
+        portfolioData.teams.push(new Manager(teamData.name, teamData.iD, teamData.eMail, teamData.officeNumber)
+        )
+      }else
+     {
+        portfolioData.teams.push(new Intern(teamData.name, teamData.iD, teamData.eMail, teamData.school)
+    )}
+
+
+
+      // portfolioData.teams.push(teamData);
       if (teamData.confirmAddTeam) {
         return promptTeam(portfolioData);
       } else {
