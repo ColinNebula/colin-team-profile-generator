@@ -1,11 +1,10 @@
 # colin-team-profile-generator
 
 ## Description
-Team profile Generator is a small web application that allows the user to quickly generate a team profile from the command line with ease. It offer acess to team member title, id, emails and GitHub profiles. The entire application is generated using nodeJs. Language used is Javascript.
+Team profile Generator is a small web application that allows the user to quickly generate a team profile from the command line with ease. It offer access to team member title, id, emails and GitHub profiles. The entire application is generated using nodeJs. Language used is Javascript.
 
 # Table of Contents
 * [Installation](#installation)
-* [Usage](#usage)
 * [Credits](#credits)
 * [License](#license)
 
@@ -28,16 +27,14 @@ https://github.com/ColinNebula/colin-team-profile-generator
 ![team-profile-gen-Screenshot_01](https://user-images.githubusercontent.com/57843842/131207861-65ecb5c5-8eba-4dbc-9952-2c872161841d.jpg)
 
 ## Installation
-Please watch the video for installation information.
-
-## Usage
-N/A
+Clone the repository or download it to a local computer
+Watch the video for installation information. (Coming Soon!)
 
 ## Credits
 Colin Nebula
 
 ## License
-MIT
+This application is covered by [MIT](https://opensource.org/licenses/MIT) license.
 
 ## Acceptance Criteria
 GIVEN a command-line application that accepts user input

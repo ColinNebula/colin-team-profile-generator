@@ -27,38 +27,9 @@ const promptUser = () => {
         }
       }
     },
-<<<<<<< HEAD
-    {
-      type: 'input',
-      name: 'email',
-      message: 'Please enter your email address?: (Required)',
-      validate: eMailInput => {
-        if (eMailInput) {
-          return true;
-        } else {
-          console.log('Enter you Email address here!');
-          return false;
-        }
-      }
-    },
-    {
-      type: 'input',
-      name: 'github',
-      message: 'Please enter your GitHub Username (Required)',
-      validate: nameInput => {
-        if (nameInput) {
-          return true;
-        } else {
-          console.log('You need to enter your GitHub Username!');
-          return false;
-        }
-      }
-    },
-=======
-    
->>>>>>> feature/updated-template
+
   ]);
-} 
+}
 
 const promptTeam = portfolioData => {
   console.log(`
@@ -67,11 +38,7 @@ Add a New Team Member
 =====================
 `);
 
-<<<<<<< HEAD
-  // inquirer prompt
-=======
   // If there's no 'member', create one
->>>>>>> feature/updated-template
   if (!portfolioData.teams) {
     portfolioData.teams = [];
   }
@@ -80,7 +47,7 @@ Add a New Team Member
       {
         type: 'input',
         name: 'name',
-        message: 'Please enter a team member name? (Required)',
+        message: 'Please enter a name? (Required)',
         validate: nameInput => {
           if (nameInput) {
             return true;
@@ -92,7 +59,7 @@ Add a New Team Member
       },
       {
         type: 'list',
-        choices: ['Engineer', 'Manager', 'Intern'], 
+        choices: ['Engineer', 'Manager', 'Intern'],
         name: 'title',
         message: 'What is title of team member (Required)',
       },
@@ -166,13 +133,13 @@ Add a New Team Member
       if (teamData.title === 'Engineer') {
         portfolioData.teams.push(new Engineer(teamData.name, teamData.iD, teamData.eMail, teamData.link)
         )
-      }else if (teamData.title === 'Manager') {
+      } else if (teamData.title === 'Manager') {
         portfolioData.teams.push(new Manager(teamData.name, teamData.iD, teamData.eMail, teamData.officeNumber)
         )
-      }else
-     {
+      } else {
         portfolioData.teams.push(new Intern(teamData.name, teamData.iD, teamData.eMail, teamData.school)
-    )}
+        )
+      }
 
 
 
