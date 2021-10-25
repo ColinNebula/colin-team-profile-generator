@@ -17,7 +17,7 @@ SO THAT I have quick access to their emails and GitHub profiles
 http://127.0.0.1:5501/dist/index.html
 
 ## Github Repository link
-https://github.com/ColinNebula/colin-team-profile-generator
+https://github.com/ColinNebula/colin-team-profile-generator/tree/main
 
 ## Project Mock-Up
 ![10-object-oriented-programming-homework-demo](https://user-images.githubusercontent.com/57843842/131204950-31bcd09a-b236-42e8-8993-ba57fd487090.png)

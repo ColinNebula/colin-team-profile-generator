@@ -38,11 +38,7 @@ const generateTeams = teamsArr => {
 
 module.exports = templateData => {
   // destructure page data by section
-<<<<<<< HEAD
-  const { Teams, name, title, iD, eMail, link, github, ...header } = templateData;
-=======
   const { teams, name, title, iD, eMail, link, github, ...header } = templateData;
->>>>>>> feature/updated-template
   return `
   <!DOCTYPE html> 
   <html lang="en"> 
