@@ -10,7 +10,7 @@ const generateTeams = teamsArr => {
       .map((emp) => {
         function returnRoleHtml() {
             if (emp.getRole() === 'Engineer') {
-              return  `<a href="${emp.link}" class="btn"><i class="fab fa-github mr-1"></i></a>`
+              return  `<a href="${emp.link}" class="btn"><i class="fab fa-github"></i></a>`
             }else if (emp.getRole() === 'Manager') {
               return  `<p>Office Number:${emp.officeNumber}</p>`
             }else {
