@@ -5,7 +5,7 @@ Team profile Generator is a small web application that allows the user to quickl
 
 # Table of Contents
 * [Installation](#installation)
-* [Credits](#credits)
+* [Author](#author)
 * [License](#license)
 
 ## User Story
@@ -22,15 +22,14 @@ https://github.com/ColinNebula/colin-team-profile-generator/tree/main
 ## Project Mock-Up
 ![10-object-oriented-programming-homework-demo](https://user-images.githubusercontent.com/57843842/131204950-31bcd09a-b236-42e8-8993-ba57fd487090.png)
 
-
 ## Project Screenshot
 ![Project-screenshot](https://user-images.githubusercontent.com/57843842/142943028-77ae99da-e0ed-44b8-baae-c4883e113050.jpg)
 
 ## Installation
-Clone the repository or download it to a local computer
-Watch the video for installation information. (Coming Soon!)
+* Clone the repository or 
+* Download it to a local computer
 
-## Credits
+## Author
 Colin Nebula
 
 ## License
